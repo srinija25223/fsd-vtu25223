@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback Form</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+form{
+background:white;
+padding:20px;
+width:350px;
+margin:auto;
+border-radius:10px;
+}
+
+input, textarea{
+width:90%;
+padding:8px;
+margin:8px;
+}
+
+.highlight{
+background:#ffffcc;
+}
+
+button{
+padding:10px;
+background:green;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+<script>
+
+function validateName(){
+var name=document.getElementById("name").value;
+
+if(name.length<3){
+document.getElementById("name_error").innerHTML="Name must be at least 3 characters";
+}
+else{
+document.getElementById("name_error").innerHTML="";
+}
+}
+
+function validateEmail(){
+var email=document.getElementById("email").value;
+
+if(!email.includes("@")){
+document.getElementById("email_error").innerHTML="Invalid email";
+}
+else{
+document.getElementById("email_error").innerHTML="";
+}
+}
+
+function highlightField(field){
+field.classList.add("highlight");
+}
+
+function removeHighlight(field){
+field.classList.remove("highlight");
+}
+
+function confirmSubmit(){
+alert("Thank you! Your feedback has been submitted.");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Customer Feedback Form</h2>
+
+<form>
+
+Name<br>
+<input type="text" id="name"
+onkeyup="validateName()"
+onmouseover="highlightField(this)"
+onmouseout="removeHighlight(this)">
+<p id="name_error" style="color:red;"></p>
+
+Email<br>
+<input type="text" id="email"
+onkeyup="validateEmail()"
+onmouseover="highlightField(this)"
+onmouseout="removeHighlight(this)">
+<p id="email_error" style="color:red;"></p>
+
+Feedback<br>
+<textarea
+onmouseover="highlightField(this)"
+onmouseout="removeHighlight(this)">
+</textarea>
+
+<br><br>
+
+<button type="button" ondblclick="confirmSubmit()">
+Submit Feedback
+</button>
+
+</form>
+
+</body>
+</html>
