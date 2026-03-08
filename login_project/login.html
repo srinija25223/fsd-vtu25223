@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+
+<script>
+
+function validateForm(){
+
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+
+if(username == ""){
+document.getElementById("error").innerHTML="Username is required";
+return false;
+}
+
+if(password == ""){
+document.getElementById("error").innerHTML="Password is required";
+return false;
+}
+
+return true;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Login Page</h2>
+
+<form action="login.php" method="POST" onsubmit="return validateForm()">
+
+Username:
+<input type="text" id="username" name="username"><br><br>
+
+Password:
+<input type="password" id="password" name="password"><br><br>
+
+<p id="error" style="color:red;"></p>
+
+<input type="submit" value="Login">
+
+</form>
+
+</body>
+</html>
